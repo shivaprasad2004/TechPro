@@ -110,6 +110,10 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login', onLogin }) => {
         errorMessage = "Password should be at least 6 characters.";
       } else if (error.code === 'auth/operation-not-allowed') {
         errorMessage = "Email/Password login is not enabled in Firebase Console.";
+      } else if (error.code === 'auth/network-request-failed') {
+        errorMessage = "Network error. Please check your internet connection.";
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMessage = "Too many attempts. Please try again later.";
       }
       
       alert(errorMessage); // Immediate feedback
